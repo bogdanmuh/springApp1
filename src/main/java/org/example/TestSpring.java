@@ -8,9 +8,11 @@ public class TestSpring {
                  "applicationContext.xml"
          );
          //ClassPathXmlApplicationContext обращаеться к файлу applicationContext и считывает все bean-ы
-         TestBean testBean=context.getBean("testBean",TestBean.class);
+         Music music=context.getBean("MusicBean",Music.class);
          //testBean - в applicationContext bean и  и вторым аргументом говорим что это класс
-         System.out.println(testBean.GetName());
+         MusicPlayer musicPlayer = new MusicPlayer(music);
+
+         musicPlayer.playMusic();
          context.close();
 
     }

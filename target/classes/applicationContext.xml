@@ -6,10 +6,10 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
-    <bean id="testBean"
-          class="org.example.TestBean">
+    <bean id="MusicBean"
+          class="org.example.RockMusic">
         <!-- это путь данный Spring-у для того чтобы он знал что нужно создавать -->
-        <constructor-arg value="Bogdan"/>
+
     </bean>
 
 </beans>
