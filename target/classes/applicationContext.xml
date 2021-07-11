@@ -7,9 +7,10 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
     <bean id="MusicBean"
-          class="org.example.RockMusic">
+          class="org.example.ClassicalMusic">
         <!-- это путь данный Spring-у для того чтобы он знал что нужно создавать -->
-
     </bean>
-
+    <bean id = "musicPlayer" class ="org.example.MusicPlayer">
+        <constructor-arg ref="MusicBean"> </constructor-arg>
+    </bean>
 </beans>
