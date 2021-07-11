@@ -6,11 +6,28 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:property-placeholder location="classpath:musicPlayer.properties"/>
+    <!-- счетение с файла-->
     <bean id="MusicBean"
-          class="org.example.ClassicalMusic">
+          class="org.example.ClassicalMusic ">
         <!-- это путь данный Spring-у для того чтобы он знал что нужно создавать -->
     </bean>
     <bean id = "musicPlayer" class ="org.example.MusicPlayer">
-        <constructor-arg ref="MusicBean"> </constructor-arg>
+        <property name="music" ref="MusicBean"/>
+        <!-- атрибут name ="music" он работает так в классу MusicPlayer есть setter setMusic ,
+        Spring убирает set и  меняет регистр с M на m -->
+        <!-- bean почти равнозначен словл объект и
+           добавить надо как работает Spring сначала создаеться объект класса Music Plaeyr
+           при помощи конструктора по умолчанию который мы создали а потом вызывается setter -->
+
+        <!--<property name="name" value="some name"/>
+        <property name="volume" value="50"/>
+          передача какаих либо констант-->
+
+        <property name="name" value="${musicPlayer.name}"/>
+        <property name="volume" value="${musicPlayer.volume}"/>
+        <!--  передача какаих либо констант-->
+
     </bean>
+
 </beans>
