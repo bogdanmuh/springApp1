@@ -9,25 +9,31 @@
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
     <!-- счетение с файла-->
     <bean id="MusicBean"
-          class="org.example.ClassicalMusic ">
+          class="org.example.ClassicalMusic "
+    init-method="doMyInit"
+    destroy-method="doMyDestroy"
+    factory-method="getClassicalMusic">
+        <!--для того чтобы создать объект он будет вызывать factory-method-->
         <!-- это путь данный Spring-у для того чтобы он знал что нужно создавать -->
     </bean>
-    <bean id = "musicPlayer" class ="org.example.MusicPlayer">
+    <!--<bean id = "musicPlayer"
+          class ="org.example.MusicPlayer"
+            scope="prototype">&lt;!&ndash; для создание различных объектов &ndash;&gt;
         <property name="music" ref="MusicBean"/>
-        <!-- атрибут name ="music" он работает так в классу MusicPlayer есть setter setMusic ,
-        Spring убирает set и  меняет регистр с M на m -->
-        <!-- bean почти равнозначен словл объект и
+        &lt;!&ndash; атрибут name ="music" он работает так в классу MusicPlayer есть setter setMusic ,
+        Spring убирает set и  меняет регистр с M на m &ndash;&gt;
+        &lt;!&ndash; bean почти равнозначен словл объект и
            добавить надо как работает Spring сначала создаеться объект класса Music Plaeyr
-           при помощи конструктора по умолчанию который мы создали а потом вызывается setter -->
+           при помощи конструктора по умолчанию который мы создали а потом вызывается setter &ndash;&gt;
 
-        <!--<property name="name" value="some name"/>
+        &lt;!&ndash;<property name="name" value="some name"/>
         <property name="volume" value="50"/>
-          передача какаих либо констант-->
+          передача какаих либо констант&ndash;&gt;
 
         <property name="name" value="${musicPlayer.name}"/>
         <property name="volume" value="${musicPlayer.volume}"/>
-        <!--  передача какаих либо констант-->
+        &lt;!&ndash;  передача какаих либо констант&ndash;&gt;
 
-    </bean>
+    </bean>-->
 
 </beans>
