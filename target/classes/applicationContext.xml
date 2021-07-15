@@ -6,10 +6,7 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
-    <bean id="MusicBean"
-          class="org.example.RockMusic">
-        <!-- это путь данный Spring-у для того чтобы он знал что нужно создавать -->
-
-    </bean>
+    <context:component-scan base-package="org.example"/>
+   <context:property-placeholder location="musicPlayer.properties"/>
 
 </beans>
